@@ -2,3 +2,4 @@ res://src/example/ExMySplashScreen.tscn
 res://src/preview_demo/PreviewDemo.tscn
 res://src/example/wait_and_move_next_screen.gd
 res://addons/awesome_splash/core/SplashContainer.gd
+res://src/example/press_space_and_move_next_screen.gd
