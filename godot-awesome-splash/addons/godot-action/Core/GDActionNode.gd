@@ -1,9 +1,9 @@
 class_name GDActionNode extends Node
 
 enum NodeType {
-	UNKNOW,
-	NODE_2D,
-	CONTROL
+  UNKNOW,
+  NODE_2D,
+  CONTROL
 }
 
 signal finished_action_signal(action_node)
@@ -27,60 +27,60 @@ var node_type = NodeType.UNKNOW
 
 
 func _init(action, key: String, node: Node):
-	self.action = action
-	self.key = key
-	self.node = node
-	self.node_id = node.get_instance_id()
-	
-	name = get_class()
-	
-	if node is Control:
-		node_type = NodeType.CONTROL
-	elif node is Node2D:
-		node_type = NodeType.NODE_2D
-	
-	finished_action_signal.connect(action._on_action_node_completed)
-	cancelled.connect(action._on_action_node_cancelled)
+  self.action = action
+  self.key = key
+  self.node = node
+  self.node_id = node.get_instance_id()
+  
+  name = get_class()
+  
+  if node is Control:
+    node_type = NodeType.CONTROL
+  elif node is Node2D:
+    node_type = NodeType.NODE_2D
+  
+  finished_action_signal.connect(action._on_action_node_completed)
+  cancelled.connect(action._on_action_node_cancelled)
 
 
 func _ready():
-	set_process(false)
+  set_process(false)
 
 
 func action_done():
-	pass
+  pass
 
 func finished():
-	set_process(false)
-	is_done = true
-	action_done()
-	finished_action_signal.emit(self)
+  set_process(false)
+  is_done = true
+  action_done()
+  finished_action_signal.emit(self)
 
 
 func cancel():
-	set_process(false)
-	is_done = true
-	action_done()
-	cancelled.emit(self)
+  set_process(false)
+  is_done = true
+  action_done()
+  cancelled.emit(self)
 
 
 func _run():
-	is_done = false
-	set_process(true)
+  is_done = false
+  set_process(true)
 
 
 func pause():
-	set_process(false)
+  set_process(false)
 
 
 func resume():
-	set_process(true)
+  set_process(true)
 
 
 func _reset_value():
-	self.current_time = 0.0
+  self.current_time = 0.0
 
 # Support debug
 func get_class() -> String:
-	return "GDActionNode"
+  return "GDActionNode"
 

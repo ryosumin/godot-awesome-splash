@@ -33,19 +33,19 @@ var parrent_size: Vector2 : set = _set_parrent_size
 
 
 func _get_origin_size() -> Vector2:
-	return outline_frame.size
+  return outline_frame.size
 
 
 func _set_parrent_size(parrent_size: Vector2):
-	var splash_origin_size = self.origin_size
-	var rect = get_aspect_center_rect(parrent_size, splash_origin_size)
-	position = rect.position
-	scale = Vector2(rect.size.x / self.origin_size.x, rect.size.y / self.origin_size.y)
+  var splash_origin_size = self.origin_size
+  var rect = get_aspect_center_rect(parrent_size, splash_origin_size)
+  position = rect.position
+  scale = Vector2(rect.size.x / self.origin_size.x, rect.size.y / self.origin_size.y)
 
 
 func get_aspect_center_rect(parrent_size: Vector2, view_size: Vector2) -> Rect2:
-	var weight = min(parrent_size.x, view_size.x * parrent_size.y / view_size.y)
-	var height = min(parrent_size.y, view_size.y * parrent_size.x / view_size.x)
-	var size = Vector2(weight, height)
-	var origin = (parrent_size - size) / 2.0
-	return Rect2(origin, size)
+  var weight = min(parrent_size.x, view_size.x * parrent_size.y / view_size.y)
+  var height = min(parrent_size.y, view_size.y * parrent_size.x / view_size.x)
+  var size = Vector2(weight, height)
+  var origin = (parrent_size - size) / 2.0
+  return Rect2(origin, size)

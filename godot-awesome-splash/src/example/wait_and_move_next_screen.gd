@@ -8,11 +8,11 @@ extends Node
 
 # This func will auto call from Splash
 func _custom_splash_did_appear():
-	var time_in_seconds = 2
-	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	
-	var container = sp.get_current_splash_container()
-	container.transition_next_screen()
+  var time_in_seconds = 2.0
+  await get_tree().create_timer(time_in_seconds).timeout
+  
+  var container = sp.get_current_splash_container()
+  container.transition_next_screen()
 
 func _custom_splash_did_disappear():
-	pass
+  pass

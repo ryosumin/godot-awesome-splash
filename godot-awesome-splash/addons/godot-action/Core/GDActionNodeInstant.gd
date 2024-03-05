@@ -2,26 +2,26 @@ class_name GDActionNodeInstant extends GDActionNode
 
 
 func _init(action, key, node):
-	super(action, key, node)
+  super(action, key, node)
 
 
 func get_class() -> String:
-	return "GDActionNodeInstant"
+  return "GDActionNodeInstant"
 
 
 func _process(delta):
-	if not is_instance_valid(node):
-		finished()
-		return
+  if not is_instance_valid(node):
+    finished()
+    return
 
-	current_time += delta * speed
-	if current_time <= delay:
-		return
-		
-	set_process(false)
-	_start_action()
+  current_time += delta * speed
+  if current_time <= delay:
+    return
+    
+  set_process(false)
+  _start_action()
 
 # Virtual function
 func _start_action():
-	pass
-	
+  pass
+  
