@@ -1,9 +1,0 @@
-VBoxContainer
-Label
-SplashContainer
-WorldEnvironment
-Sprite2D
-CanvasLayer
-TextureRect
-SubViewport
-SubViewportContainer
